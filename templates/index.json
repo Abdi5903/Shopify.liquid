@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "main": {
+      "type": "bike-single",
+      "settings": {
+        "heading": "Vores cykel",
+        "product": ""
+      }
+    }
+  },
+  "order": ["main"]
+}

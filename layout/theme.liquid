@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>{{ page_title }}</title>
+    {{ content_for_header }}
+
+    {{ 'bike.css' | asset_url | stylesheet_tag }}
+  </head>
+
+  <body>
+    <header class="topbar">
+      <div class="brand">🚲 Cykelbutik</div>
+      <a class="cartlink" href="{{ routes.cart_url }}">
+        Kurv ({{ cart.item_count }})
+      </a>
+    </header>
+
+    <main class="container">
+      {{ content_for_layout }}
+    </main>
+  </body>
+</html>

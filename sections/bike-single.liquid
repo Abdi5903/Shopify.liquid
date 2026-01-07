@@ -1,0 +1,110 @@
+{% comment %}
+  Section: bike-single
+  Viser ét valgt produkt + add-to-cart form.
+{% endcomment %}
+
+{% assign p = section.settings.product %}
+{% if p == blank %}
+  <section class="card">
+    <h1 class="h1">{{ section.settings.heading }}</h1>
+    <p class="muted">
+      Vælg et produkt i Theme Editor:
+      Customize → vælg denne section → Product.
+    </p>
+  </section>
+{% else %}
+  {% assign v = p.selected_or_first_available_variant %}
+
+  <section class="card">
+    <h1 class="h1">{{ section.settings.heading }}</h1>
+
+    <div class="product">
+      <div class="product__media">
+        {% if p.featured_image %}
+          <img
+            src="{{ p.featured_image | image_url: width: 900 }}"
+            alt="{{ p.featured_image.alt | escape }}"
+            loading="lazy"
+          >
+        {% else %}
+          <div class="placeholder">Ingen billede</div>
+        {% endif %}
+      </div>
+
+      <div class="product__info">
+        <h2 class="h2">{{ p.title }}</h2>
+
+        <p class="price">
+          {{ v.price | money }}
+          {% if v.compare_at_price and v.compare_at_price > v.price %}
+            <span class="compare">{{ v.compare_at_price | money }}</span>
+          {% endif %}
+        </p>
+
+        {% if p.description != blank %}
+          <div class="desc">{{ p.description }}</div>
+        {% endif %}
+
+        <div class="meta">
+          <div><strong>Produkt-handle:</strong> {{ p.handle }}</div>
+          <div><strong>Variant ID (det Shopify bruger i kurven):</strong> {{ v.id }}</div>
+        </div>
+
+        {% form 'product', p %}
+          {%- comment -%}
+            Nøglen: "id" input SKAL være variant-id.
+            Den bliver sendt til Shopify når man trykker Add to cart.
+          {%- endcomment -%}
+
+          <input type="hidden" name="id" value="{{ v.id }}">
+
+          {%- comment -%}
+            Hvis du vil vise varianter (størrelse/farve), kan vi udbygge det senere.
+          {%- endcomment -%}
+
+          <label class="qty">
+            Antal
+            <input type="number" name="quantity" value="1" min="1">
+          </label>
+
+          <button
+            class="btn"
+            type="submit"
+            name="add"
+            {% unless v.available %}disabled{% endunless %}
+          >
+            {% if v.available %}Tilføj til kurv{% else %}Udsolgt{% endif %}
+          </button>
+        {% endform %}
+
+        <p class="muted small">
+          Efter klik: gå til <a href="{{ routes.cart_url }}">kurven</a> for at se varen.
+        </p>
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Bike – single product",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Overskrift",
+      "default": "Vores cykel"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Vælg produkt"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bike – single product"
+    }
+  ]
+}
+{% endschema %}
