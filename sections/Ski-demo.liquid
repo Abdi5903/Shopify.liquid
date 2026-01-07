@@ -1,0 +1,79 @@
+<section class="ski">
+  <div class="ski__grid">
+    <div class="ski__media">
+      <img
+        class="ski__main"
+        src="https://factionskis.com/cdn/shop/files/Faction-Skis-Prodigy-1-Matej-2026-Topsheet-1x1.jpg?v=1760455786&width=1200"
+        alt="Ski"
+        loading="lazy"
+      >
+
+      <div class="ski__thumbs">
+        <button class="thumb" type="button" data-src="https://factionskis.com/cdn/shop/files/Faction-Skis-Prodigy-1-Matej-2026-Bases-1x1.jpg?v=1760457540&width=650">
+          <img src="https://factionskis.com/cdn/shop/files/Faction-Skis-Prodigy-1-Matej-2026-Bases-1x1.jpg?v=1760457540&width=650" alt="">
+        </button>
+
+        <button class="thumb" type="button" data-src="https://factionskis.com/cdn/shop/files/Faction-Skis-Prodigy-1-Matej-2026-lux3-1x1.jpg?v=1760457564&width=650">
+          <img src="https://factionskis.com/cdn/shop/files/Faction-Skis-Prodigy-1-Matej-2026-lux3-1x1.jpg?v=1760457564&width=650" alt="">
+        </button>
+
+        <button class="thumb" type="button" data-src="https://factionskis.com/cdn/shop/files/Faction-Skis-Prodigy-1-Matej-2026-lux1-1x1.jpg?v=1760457564&width=650">
+          <img src="https://factionskis.com/cdn/shop/files/Faction-Skis-Prodigy-1-Matej-2026-lux1-1x1.jpg?v=1760457564&width=650" alt="">
+        </button>
+
+        <button class="thumb" type="button" data-src="https://factionskis.com/cdn/shop/files/Faction-Skis-Prodigy-1-Matej-2026-lux2-1x1.jpg?v=1760457564&width=650">
+          <img src="https://factionskis.com/cdn/shop/files/Faction-Skis-Prodigy-1-Matej-2026-lux2-1x1.jpg?v=1760457564&width=650" alt="">
+        </button>
+      </div>
+    </div>
+
+    <div class="ski__info">
+      <h1 class="ski__title">All-Mountain Ski 2025</h1>
+      <p class="ski__text">High-performance all-mountain skis designed for stability, speed, and versatility.</p>
+
+      <div class="ski__block">
+        <h3 class="ski__h3">Select size</h3>
+
+        <!-- KNAPPER (rigtige knapper) -->
+        <div class="sizes" role="group" aria-label="Select size">
+          <button class="size-btn is-active" type="button" data-size="160">160 cm</button>
+          <button class="size-btn" type="button" data-size="170">170 cm</button>
+          <button class="size-btn" type="button" data-size="180">180 cm</button>
+          <button class="size-btn" type="button" data-size="190">190 cm</button>
+        </div>
+
+        <!-- Add to cart-knap (UI) -->
+        <button class="atc" type="button" id="add-to-cart">Add to cart</button>
+
+        <p class="mini">
+          Selected size: <strong id="selected-size">160</strong> cm
+          · Cart count: <strong id="cart-count">0</strong>
+        </p>
+      </div>
+
+      <div class="accordion">
+        <div class="acc-item">
+          <button class="acc-header" type="button">SHIPPING & RETURNS <span class="acc-icon">+</span></button>
+          <div class="acc-content"><p>Free shipping over $100. Returns accepted within 30 days.</p></div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-header" type="button">SKI WARRANTY <span class="acc-icon">+</span></button>
+          <div class="acc-content"><p>All skis are covered by a 2-year manufacturer warranty.</p></div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-header" type="button">ASK ANY QUESTION <span class="acc-icon">+</span></button>
+          <div class="acc-content"><p>Contact our support team anytime.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Ski demo page",
+  "settings": []
+}
+{% endschema %}

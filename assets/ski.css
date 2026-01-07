@@ -1,0 +1,26 @@
+.ski { padding: 32px 16px; max-width: 1200px; margin: 0 auto; }
+.ski__grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 32px; align-items: start; }
+.ski__main { width: 100%; border-radius: 14px; display:block; }
+.ski__thumbs { display:grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 12px; }
+.thumb { padding:0; border:0; background:transparent; cursor:pointer; }
+.thumb img { width:100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 10px; display:block; }
+.ski__title { margin: 0 0 8px; font-size: 28px; }
+.ski__text { margin: 0 0 18px; opacity: .8; }
+.ski__block { padding: 14px 0; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; }
+.sizes { display:flex; gap:10px; flex-wrap: wrap; margin: 10px 0 14px; }
+.size-btn { padding: 10px 14px; border: 1px solid #222; border-radius: 10px; background: #fff; cursor:pointer; }
+.size-btn.is-active { background:#111; color:#fff; }
+.atc { width: 100%; padding: 14px; border: 0; border-radius: 12px; background:#111; color:#fff; font-size: 16px; cursor:pointer; }
+.mini { margin: 10px 0 0; font-size: 13px; opacity: .85; }
+
+.accordion { margin-top: 18px; border-top: 1px solid #ddd; }
+.acc-item { border-bottom: 1px solid #ddd; }
+.acc-header { width:100%; display:flex; justify-content:space-between; align-items:center; background:transparent; border:0; padding: 14px 0; font-weight: 700; cursor:pointer; }
+.acc-content { max-height: 0; overflow:hidden; transition: max-height .25s ease; }
+.acc-item.is-open .acc-content { max-height: 140px; }
+.acc-icon { font-size: 20px; }
+
+@media (max-width: 900px){
+  .ski__grid{ grid-template-columns: 1fr; }
+}
+
